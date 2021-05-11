@@ -131,3 +131,4 @@ dmypy.json
 
 # PyCharm
 .idea
+/department_app.db
