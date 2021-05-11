@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Department №1</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <span class="navbar-brand">Departments</span>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="departments.html">Departments</a>
+                </li>
+                <li>
+                    <a href="employees.html">Employees</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <a style="font-size: 20px" href="departments.html">&#8592; Back</a>
+    <h2>Add new employee to Department №1:</h2>
+    <form class="form"
+          action="#"
+          method="post">
+        <table class="table">
+            <thead>
+            <tr>
+                <th style="padding-left: 25px" colspan="2">Employee Name</th>
+                <th></th>
+                <th style="padding-left: 25px">Date of Birth</th>
+                <th style="padding-left: 25px">Salary</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="2"><input type="text" class="form-control"
+                                       placeholder="Employee Name" required></td>
+                <td></td>
+                <td><input type="date" class="form-control" required></td>
+                <td><input type="text" class="form-control"
+                           placeholder="Salary" required></td>
+                <td>
+                    <button type="submit" class="btn btn-success">Save employee</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <h3>Search for employees born on specific date or in interval:</h3>
+    <form class="form-inline"
+          action="#" method="get">
+        <div class="form-group">
+            <label for="date_of_birth">Date of birth</label>
+            <input class="form-control" type="date" id="date_of_birth" name="date_of_birth"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="date_for_interval">Date for interval</label>
+            <input class="form-control" type="date" id="date_for_interval" ,
+                   name="date_for_interval">
+        </div>
+        <button class="btn btn-default" type="submit">Find employees</button>
+    </form>
+    <h2>Employees in Department №1:</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date of birth</th>
+            <th>Salary</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>John Adams</td>
+            <td>1988-02-09</td>
+            <td>11550</td>
+            <td><a href="#">
+                <button type="button" class="btn btn-secondary">Edit</button>
+            </a></td>
+            <td><a href="#">
+                <button onclick="return confirm('Are you sure you wish to delete?');"
+                        type="button" class="btn btn-danger">Delete
+                </button>
+            </a></td>
+        </tr>
+        <tr>
+            <td>Emilie Wilson</td>
+            <td>1992-11-27</td>
+            <td>12100</td>
+            <td><a href="#">
+                <button type="button" class="btn btn-secondary">Edit</button>
+            </a></td>
+            <td><a href="#">
+                <button onclick="return confirm('Are you sure you wish to delete?');"
+                        type="button" class="btn btn-danger">Delete
+                </button>
+            </a></td>
+        </tr>
+        <tr>
+            <td>Lora Palmer</td>
+            <td>1972-07-22</td>
+            <td>11400</td>
+            <td><a href="#">
+                <button type="button" class="btn btn-secondary">Edit</button>
+            </a></td>
+            <td><a href="#">
+                <button onclick="return confirm('Are you sure you wish to delete?');"
+                        type="button" class="btn btn-danger">Delete
+                </button>
+            </a></td>
+        </tr>
+        <tr>
+            <td>Samuel Robinson</td>
+            <td>1994-09-01</td>
+            <td>11700</td>
+            <td><a href="#">
+                <button type="button" class="btn btn-secondary">Edit</button>
+            </a></td>
+            <td><a href="#">
+                <button onclick="return confirm('Are you sure you wish to delete?');"
+                        type="button" class="btn btn-danger">Delete
+                </button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+<script src="./bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
