@@ -1,0 +1,25 @@
+branches:
+  only:
+  - master
+
+language: python
+
+python:
+  - "3.8"
+#dependencies
+install:
+- pip install -r requirements.txt
+- pip install coverage pytest pylint pylint_flask_sqlalchemy pylint-flask
+
+# commands to run tests
+script:
+
+- coverage run -m pytest department_app
+
+- pylint --exit-zero --load-plugins=pylint_flask,pylint_flask_sqlalchemy department_app
+
+#test coverage
+- coverage report
+
+after_success:
+- coveralls
