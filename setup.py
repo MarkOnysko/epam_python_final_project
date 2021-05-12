@@ -1,12 +1,13 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='department_app',
-    version='0.1',
-    description='Application to perform CRUD operations on departments and employees via a REST-API.',
-    author='Mark Onysko',
-    author_email='argentumno3@gmail.com',
-    url='https://github.com/MarkOnysko/epam_python_final_project',
+    name="department_app",
+    version="0.1",
+    description="Application to perform CRUD operations on departments"
+                "and employees via a REST-API.",
+    author="Mark Onysko",
+    author_email="argentumno3@gmail.com",
+    url="https://github.com/MarkOnysko/epam_python_final_project",
     install_requires=[
         "Flask>=1.1.2",
         "Flask-Bootstrap>=3.3.7.1",
