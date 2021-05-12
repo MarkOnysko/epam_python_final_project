@@ -1,3 +1,5 @@
+# pylint: disable=W0613
+# pylint: disable=C0116
 """"Module contains test for EmployeeServices class's methods"""
 from datetime import date
 import pytest

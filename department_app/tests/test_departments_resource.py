@@ -1,3 +1,4 @@
+# pylint: disable=C0116
 """Module contains test for DepartmentAPI and DepartmentEmployeesAPI classes"""
 
 

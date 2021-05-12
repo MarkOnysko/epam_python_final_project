@@ -29,8 +29,8 @@ def create_app(config_class=Config):
         api.init_app(app)
 
     if not app.debug and not app.testing:
-        if not os.path.exists("logs"):
-            os.mkdir("logs")
+        if not os.path.exists("log"):
+            os.mkdir("log")
         file_handler = RotatingFileHandler(
             "log/departments.log", maxBytes=10240, backupCount=5
         )
