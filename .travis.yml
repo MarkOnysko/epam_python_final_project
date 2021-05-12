@@ -9,7 +9,7 @@ python:
 #dependencies
 install:
 - pip install -r requirements.txt
-- pip install coverage pytest pylint pylint_flask_sqlalchemy pylint-flask
+- pip install coverage pytest pylint pylint_flask_sqlalchemy pylint-flask coveralls
 
 # commands to run tests
 script:
