@@ -5,7 +5,6 @@ from department_app.models.insert_data import populate_db
 from config import TestConfig
 
 
-
 @pytest.fixture
 def app():
     """
@@ -25,3 +24,11 @@ def app():
     ctx.pop()
 
 
+@pytest.fixture
+def client(app):
+    """
+    A pytest fixture to make a test client available
+    in tests.
+    """
+    client = app.test_client()
+    yield client
