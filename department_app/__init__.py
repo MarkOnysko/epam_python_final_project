@@ -1,10 +1,10 @@
 """Module contains the app factory function"""
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from config import Config
+from .models import db
 
-db = SQLAlchemy()
+
 migrate = Migrate()
 
 
