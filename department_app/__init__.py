@@ -19,5 +19,9 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     db.init_app(app)
     migrate.init_app(app, db)
+    with app.app_context():
+        from department_app.rest import api
+
+        api.init_app(app)
 
     return app
