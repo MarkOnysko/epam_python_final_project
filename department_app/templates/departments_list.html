@@ -42,10 +42,10 @@
                     <a href="{{ url_for('views.department_detail_view', dep_id=department.id) }}">{{ department.name }}</a>
                 </td>
                 <td>{{ department.avg_salary }}</td>
-                <td><a href="#">
+                <td><a href="{{ url_for('views.department_edit', dep_id=department.id) }}">
                     <button type="button" class="btn btn-secondary">Edit</button>
                 </a></td>
-                <td><a href="3">
+                <td><a href="{{ url_for('views.department_delete', dep_id=department.id) }}">
                     <button onclick="return confirm('Are you sure you wish to delete?');"
                             type="button" class="btn btn-danger">Delete
                     </button>

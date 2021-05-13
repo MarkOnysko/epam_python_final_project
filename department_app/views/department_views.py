@@ -94,3 +94,49 @@ def create_employee_for_department(dep_id):
         form=form,
         back_url=url_for("views.departments_list_view"),
     )
+
+
+@bp.route("/departments/<int:dep_id>/edit", methods=["GET", "POST"])
+def department_edit(dep_id):
+    """
+    On GET request renders the "departments_list.html" template with
+    form filled with data of the department to edit, if invalid dep_id
+    specified in url - aborts with 404 error. On form submitting validates
+    the data. If validation passes - PUTs data to REST API. If response code
+    is 200 redirects to departments_list_view with success message. Else -
+    with error message and filled form.
+    """
+    response = client.get(f"{BASE_URL}/api/v1/departments/{dep_id}")
+    if response.status_code == 404:
+        abort(404, description=response.json()["message"])
+    form = DepartmentForm(data=response.json())
+    if form.validate_on_submit():
+        data = {"name": request.form["name"]}
+        response = client.put(f"{BASE_URL}/api/v1/departments/{dep_id}", json=data)
+        if response.status_code == 200:
+            flash("Department updated successfully.")
+            return redirect(url_for("views.departments_list_view"))
+        flash(response.json()["message"])
+    departments = client.get(f"{BASE_URL}/api/v1/departments").json()
+    return render_template(
+        "departments_list.html",
+        departments=departments,
+        active="departments",
+        form=form,
+    )
+
+
+@bp.route("/departments/<int:dep_id>/delete")
+def department_delete(dep_id):
+    """
+    Performs a delete request to REST API with the department id.
+    If response code is 404 aborts with 404 error.
+    Else - redirects to departments_list_view with "deleted successfully"
+    message.
+    """
+    response = client.delete(f"{BASE_URL}/api/v1/departments/{dep_id}")
+    if response.status_code == 404:
+        abort(404, description=response.json()["message"])
+    else:
+        flash("Department deleted successfully.")
+    return redirect(url_for("views.departments_list_view"))
