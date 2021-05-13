@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block title %}{{ department.name }} {% endblock %}
+
+{% block app_content %}
+    <a style="font-size: 20px" href="{{ back_url }}">&#8592; Back</a>
+    {% if form %}
+        <h2>Add new employee to {{ department.name }}:</h2>
+        <form class="form"
+              action="{{ url_for('views.create_employee_for_department', dep_id=department.id) }}"
+              method="post">
+            {{ form.hidden_tag() }}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th style="padding-left: 25px" colspan="2">Employee Name</th>
+                    <th></th>
+                    <th style="padding-left: 25px">Date of Birth</th>
+                    <th style="padding-left: 25px">Salary</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td colspan="2">{{ wtf.form_field(form.name, form_type="horizontal", horizontal_columns=('lg', 0, 12)) }}</td>
+                    <td></td>
+                    <td>{{ wtf.form_field(form.date_of_birth, form_type="horizontal", horizontal_columns=('lg', 0, 12)) }}</td>
+                    <td>{{ wtf.form_field(form.salary, form_type="horizontal", horizontal_columns=('lg', 0, 12)) }}</td>
+                    <td>{{ wtf.form_field(form.submit, form_type="horizontal", button_map={"submit": "success"}, horizontal_columns=('lg', 0, 6)) }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    {% endif %}
+    {% if employees %}
+    <h2>Employees in {{ department.name }}:</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date of birth</th>
+            <th>Salary</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.date_of_birth }}</td>
+                <td>{{ employee.salary }}</td>
+                <td><a href="#">
+                    <button type="button" class="btn btn-secondary">Edit</button>
+                </a></td>
+                <td><a href="#">
+                    <button onclick="return confirm('Are you sure you wish to delete?');"
+                            type="button" class="btn btn-danger">Delete
+                    </button>
+                </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+   <h2>No employees found in {{ department.name }}.</h2>
+    {% endif %}
+{% endblock %}

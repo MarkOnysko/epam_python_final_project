@@ -1,0 +1,111 @@
+2021-05-13 13:42:57,836 ERROR: Exception on /departments/1 [GET] [in /home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 272, in error_router
+    return original_handler(e)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/views/department_views.py", line 53, in department_detail_view
+    return render_template(
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/templates/department_detail.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/templates/base.html", line 1, in top-level template code
+    {% extends "bootstrap/base.html" %}
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
+    {% block content -%}
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/templates/base.html", line 40, in block "content"
+    {% block app_content %}{% endblock %}
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/templates/department_detail.html", line 10, in block "app_content"
+    action="{{ url_for('views.create_employee_for_department', dep_id=department.id) }}"
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'views.create_employee_for_department' with values ['dep_id']. Did you mean 'views.employees_list_view' instead?
+2021-05-13 13:42:57,876 ERROR: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application. [in /home/mark/PycharmProjects/epam_final_project/department_app/errors/handlers.py:17]
+2021-05-13 13:43:43,405 ERROR: Exception on /departments/1 [GET] [in /home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_restful/__init__.py", line 272, in error_router
+    return original_handler(e)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/views/department_views.py", line 53, in department_detail_view
+    return render_template(
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/templates/department_detail.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/templates/base.html", line 1, in top-level template code
+    {% extends "bootstrap/base.html" %}
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
+    {%- block html %}
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
+    {% block body -%}
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block "body"
+    {% block content -%}
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/templates/base.html", line 40, in block "content"
+    {% block app_content %}{% endblock %}
+  File "/home/mark/PycharmProjects/epam_final_project/department_app/templates/department_detail.html", line 10, in block "app_content"
+    action="{{ url_for('views.create_employee_for_department', dep_id=department.id) }}"
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "/home/mark/PycharmProjects/epam_final_project/venv/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'views.create_employee_for_department' with values ['dep_id']. Did you mean 'views.employees_list_view' instead?
