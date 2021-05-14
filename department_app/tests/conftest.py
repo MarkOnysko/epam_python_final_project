@@ -94,7 +94,7 @@ def server(module_app):
         return "Shutting down server ..."
 
     t = threading.Thread(target=module_app.run)
-    time.sleep(3)
+    time.sleep(4)
     yield t.start()
 
     import requests
