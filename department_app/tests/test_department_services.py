@@ -1,12 +1,15 @@
 # pylint: disable=W0613
 # pylint: disable=C0116
 """Module contains test for DepartmentServices class's methods"""
+import time
+
 import pytest
 
 from department_app.service import DepartmentServices, EmployeeServices
 
 
 def test_get_all(app):
+    time.sleep(1)
     departments = DepartmentServices.get_all()
     assert len(departments) == 2
 

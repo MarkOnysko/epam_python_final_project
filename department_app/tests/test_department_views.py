@@ -1,9 +1,11 @@
 # pylint: disable=W0613
 # pylint: disable=C0116
 """Module contains test for department_views.py functions"""
+import time
 
 
 def test_departments_list_view_get(module_app, mclient, server):
+    time.sleep(1)
     response = mclient.get("/departments")
     assert response.status_code == 200
     assert b"Departments" in response.data
