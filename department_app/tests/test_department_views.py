@@ -5,7 +5,7 @@ import time
 
 
 def test_departments_list_view_get(module_app, mclient, server):
-    time.sleep(1)
+    time.sleep(2)
     response = mclient.get("/departments")
     assert response.status_code == 200
     assert b"Departments" in response.data
