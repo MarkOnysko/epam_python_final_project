@@ -1,8 +1,8 @@
 # pylint: disable=E1101
 """Module contains a function to populate test data in DB."""
 from datetime import date
-from department_app import create_app
-from department_app.models import Department, Employee, db
+from department_app import db, create_app
+from department_app.models import Department, Employee
 
 
 def populate_db():
@@ -58,3 +58,4 @@ if __name__ == "__main__":
     app = create_app()
     with app.app_context():
         populate_db()
+
