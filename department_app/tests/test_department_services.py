@@ -1,6 +1,7 @@
 # pylint: disable=W0613
 # pylint: disable=C0116
 """Module contains test for DepartmentServices class's methods"""
+
 import pytest
 
 from department_app.service import DepartmentServices, EmployeeServices

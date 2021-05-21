@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=department_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build: .
+    command: sh -c "./wait-for-it.sh db:5432 &&
+                    ./run_in_compose.sh"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+volumes:
+  db-data:

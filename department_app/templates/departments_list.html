@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block title %}Departments{% endblock %}
+
+{% block app_content %}
+    <h1 style="text-align: center">Departments</h1>
+    <form class="form" method="post">
+        {{ form.hidden_tag() }}
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Create or edit departments</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="3">{{ wtf.form_field(form.name, form_type="horizontal", horizontal_columns=('lg', 0, 12)) }}</td>
+                <td></td>
+                <td></td>
+                <td>{{ wtf.form_field(form.submit, form_type="horizontal", button_map={"submit": "success"}, horizontal_columns=('lg', 4, 6)) }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    {% if departments %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Department name</th>
+            <th>Average salary</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for department in departments %}
+            <tr>
+                <td>
+                    <a href="{{ url_for('views.department_detail_view', dep_id=department.id) }}">{{ department.name }}</a>
+                </td>
+                <td>{{ department.avg_salary }}</td>
+                <td><a href="{{ url_for('views.department_edit', dep_id=department.id) }}">
+                    <button type="button" class="btn btn-secondary">Edit</button>
+                </a></td>
+                <td><a href="{{ url_for('views.department_delete', dep_id=department.id) }}">
+                    <button onclick="return confirm('Are you sure you wish to delete?');"
+                            type="button" class="btn btn-danger">Delete
+                    </button>
+                </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h2>No departments found.</h2>
+    {% endif %}
+{% endblock %}
